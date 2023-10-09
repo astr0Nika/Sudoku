@@ -1,0 +1,171 @@
+﻿<Window x:Class="Sudoku.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Title="Sudoku"
+        Height="600" Width="550" MinHeight="450" MinWidth="360"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <UniformGrid Rows="1" Grid.Row="1" Grid.Column="1">
+            <Button x:Name="buttonClear" Content="Clear"  Margin="5" Click="buttonClear_Click"/>
+            <Button x:Name="buttonExample" Content="Example" Margin="5" Click="buttonExample_Click"/>
+            <Button x:Name="buttonSolve" Content="Solve" Margin="5" Click="buttonSolve_Click"/>
+            <Button x:Name="buttonExplane" Content="Rules" Margin="5" Click="buttonExplane_Click"/>
+        </UniformGrid>
+
+        <UniformGrid x:Name="gridTextBox" Rows="3" Columns="3" Grid.Row="3" Grid.Column="1">
+            <UniformGrid.Resources>
+                <Style TargetType="UniformGrid">
+                    <Setter Property="Rows" Value="3"/>
+                    <Setter Property="Columns" Value="3"/>
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1.5"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Background" Value="Beige"/>
+                    <Setter Property="FontSize" Value="30"/>
+                    <Setter Property="BorderBrush" Value="#FFD8C3C3"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <!--<EventSetter Event="TextChanged" Handler="box_TextChanged"/>-->
+                    <EventSetter Event="KeyUp" Handler="TextBox_KeyUp"/>
+                </Style>
+            </UniformGrid.Resources>
+
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_00"/>
+                    <TextBox x:Name="box_01"/>
+                    <TextBox x:Name="box_02"/>
+                    <TextBox x:Name="box_10"/>
+                    <TextBox x:Name="box_11"/>
+                    <TextBox x:Name="box_12"/>
+                    <TextBox x:Name="box_20"/>
+                    <TextBox x:Name="box_21"/>
+                    <TextBox x:Name="box_22"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_03"/>
+                    <TextBox x:Name="box_04"/>
+                    <TextBox x:Name="box_05"/>
+                    <TextBox x:Name="box_13"/>
+                    <TextBox x:Name="box_14"/>
+                    <TextBox x:Name="box_15"/>
+                    <TextBox x:Name="box_23"/>
+                    <TextBox x:Name="box_24"/>
+                    <TextBox x:Name="box_25"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_06"/>
+                    <TextBox x:Name="box_07"/>
+                    <TextBox x:Name="box_08"/>
+                    <TextBox x:Name="box_16"/>
+                    <TextBox x:Name="box_17"/>
+                    <TextBox x:Name="box_18"/>
+                    <TextBox x:Name="box_26"/>
+                    <TextBox x:Name="box_27"/>
+                    <TextBox x:Name="box_28"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_30"/>
+                    <TextBox x:Name="box_31"/>
+                    <TextBox x:Name="box_32"/>
+                    <TextBox x:Name="box_40"/>
+                    <TextBox x:Name="box_41"/>
+                    <TextBox x:Name="box_42"/>
+                    <TextBox x:Name="box_50"/>
+                    <TextBox x:Name="box_51"/>
+                    <TextBox x:Name="box_52"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_33"/>
+                    <TextBox x:Name="box_34"/>
+                    <TextBox x:Name="box_35"/>
+                    <TextBox x:Name="box_43"/>
+                    <TextBox x:Name="box_44"/>
+                    <TextBox x:Name="box_45"/>
+                    <TextBox x:Name="box_53"/>
+                    <TextBox x:Name="box_54"/>
+                    <TextBox x:Name="box_55"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_36"/>
+                    <TextBox x:Name="box_37"/>
+                    <TextBox x:Name="box_38"/>
+                    <TextBox x:Name="box_46"/>
+                    <TextBox x:Name="box_47"/>
+                    <TextBox x:Name="box_48"/>
+                    <TextBox x:Name="box_56"/>
+                    <TextBox x:Name="box_57"/>
+                    <TextBox x:Name="box_58"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_60"/>
+                    <TextBox x:Name="box_61"/>
+                    <TextBox x:Name="box_62"/>
+                    <TextBox x:Name="box_70"/>
+                    <TextBox x:Name="box_71"/>
+                    <TextBox x:Name="box_72"/>
+                    <TextBox x:Name="box_80"/>
+                    <TextBox x:Name="box_81"/>
+                    <TextBox x:Name="box_82"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_63"/>
+                    <TextBox x:Name="box_64"/>
+                    <TextBox x:Name="box_65"/>
+                    <TextBox x:Name="box_73"/>
+                    <TextBox x:Name="box_74"/>
+                    <TextBox x:Name="box_75"/>
+                    <TextBox x:Name="box_83"/>
+                    <TextBox x:Name="box_84"/>
+                    <TextBox x:Name="box_85"/>
+                </UniformGrid>
+            </Border>
+            <Border>
+                <UniformGrid>
+                    <TextBox x:Name="box_66"/>
+                    <TextBox x:Name="box_67"/>
+                    <TextBox x:Name="box_68"/>
+                    <TextBox x:Name="box_76"/>
+                    <TextBox x:Name="box_77"/>
+                    <TextBox x:Name="box_78"/>
+                    <TextBox x:Name="box_86"/>
+                    <TextBox x:Name="box_87"/>
+                    <TextBox x:Name="box_88"/>
+                </UniformGrid>
+            </Border>
+        </UniformGrid>
+    </Grid>
+</Window>
