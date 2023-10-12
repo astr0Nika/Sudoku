@@ -45,7 +45,7 @@ public class SudokuLogic
             return true;
         }
 
-        var nextMove = freeMove.Value;
+        Coordinate nextMove = freeMove.Value;
 
         for (int i = 1; i <= 9; i++)
         {
@@ -90,15 +90,15 @@ public class SudokuLogic
         }
 
         // 3x3 box from coordinates
-        var startY = lastMove.Y / 3 * 3;
-        var startX = lastMove.X / 3 * 3;
+        int startY = lastMove.Y / 3 * 3;
+        int startX = lastMove.X / 3 * 3;
 
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
             {
-                var yG = startY + y;
-                var xG = startX + x;
+                int yG = startY + y;
+                int xG = startX + x;
 
                 if (lastMove.Y == yG && lastMove.X == xG)
                 {

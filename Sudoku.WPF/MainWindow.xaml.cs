@@ -166,7 +166,7 @@ public partial class MainWindow : Window
             }
         });
 
-        var result = await Task.Factory.StartNew(() => sudoku.GetStarted());
+        bool result = await Task.Factory.StartNew(() => sudoku.GetStarted());
 
         this.IsEnabled = true;
 
@@ -186,7 +186,7 @@ public partial class MainWindow : Window
                 return;
             }
 
-            var value = sudoku.GetValue(y, x);
+            int value = sudoku.GetValue(y, x);
             box.Foreground = Brushes.Red;
             box.Text = value == 0 ? "" : value.ToString();
 

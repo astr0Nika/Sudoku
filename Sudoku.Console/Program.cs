@@ -7,7 +7,7 @@ FillExample(sudoku);
 //Console.WriteLine();
 
 Console.WriteLine("Please wait...");
-var result = sudoku.GetStarted();
+bool result = sudoku.GetStarted();
 
 if(!result)
 {
@@ -52,7 +52,7 @@ void PrintSudoku()
 {
     string GetContent(int y, int x)
     {
-        var result = sudoku.GetValue(y, x);
+        int result = sudoku.GetValue(y, x);
         return result == 0 ? " " : result.ToString();
     }
 
