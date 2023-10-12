@@ -156,23 +156,37 @@ public partial class MainWindow : Window
         buttonExample.IsEnabled = false;
 
         SudokuLogic sudoku = new();
+        bool notValid = false;
 
         //SetSudoku(sudoku);
         ActionForEveryTextBox((box, x, y) =>
         {
             if (int.TryParse(box.Text, out int value))
             {
-                sudoku.SetValue(y, x, value);
+                try
+                {
+                    sudoku.SetValue(y, x, value);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Table couldn't be solved.", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    notValid = true;
+                }
             }
         });
 
-        bool result = await Task.Factory.StartNew(() => sudoku.GetStarted());
+        if (notValid)
+        {
+            this.IsEnabled = true;
+            return;
+        }
 
+        bool result = await Task.Factory.StartNew(() => sudoku.GetStarted());
         this.IsEnabled = true;
 
         if (!result)
         {
-            MessageBox.Show("Table couldn't be solved.", "Failed", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Table couldn't be solved.", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
