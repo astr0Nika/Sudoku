@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Title="Sudoku"
-        Height="600" Width="550" MinHeight="450" MinWidth="360"
+        Height="700" Width="650" MinHeight="450" MinWidth="360"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
@@ -22,10 +22,10 @@
         </Grid.ColumnDefinitions>
 
         <UniformGrid Rows="1" Grid.Row="1" Grid.Column="1">
-            <Button x:Name="buttonClear" Content="Clear"  Margin="5" Click="buttonClear_Click"/>
-            <Button x:Name="buttonExample" Content="Example" Margin="5" Click="buttonExample_Click"/>
-            <Button x:Name="buttonSolve" Content="Solve" Margin="5" Click="buttonSolve_Click"/>
-            <Button x:Name="buttonExplane" Content="Rules" Margin="5" Click="buttonExplane_Click"/>
+            <Button x:Name="buttonClear" FontSize="20" Content="Leeren"  Margin="5" Click="buttonClear_Click"/>
+            <Button x:Name="buttonExample" FontSize="20" Content="Beispiele" Margin="5" Click="buttonExample_Click"/>
+            <Button x:Name="buttonSolve" FontSize="20" Content="Auflösen" Margin="5" Click="buttonSolve_Click"/>
+            <Button x:Name="buttonExplane" FontSize="20" Content="Regeln" Margin="5" Click="buttonExplane_Click"/>
         </UniformGrid>
 
         <UniformGrid x:Name="gridTextBox" Rows="3" Columns="3" Grid.Row="3" Grid.Column="1">
@@ -40,7 +40,7 @@
                 </Style>
                 <Style TargetType="TextBox">
                     <Setter Property="Background" Value="Beige"/>
-                    <Setter Property="FontSize" Value="30"/>
+                    <Setter Property="FontSize" Value="35"/>
                     <Setter Property="BorderBrush" Value="#FFD8C3C3"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
